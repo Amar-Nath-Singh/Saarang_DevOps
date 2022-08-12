@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Select from "react-select";
+import axios from "axios";
 import "./items.css";
 class Items extends Component {
   state = { count: 0, selected: "S", size: "S" };
@@ -11,6 +12,13 @@ class Items extends Component {
     { value: "L", label: "L" },
     { value: "XL", label: "XL" },
   ];
+  buy_data = {
+    itemName: this.props.itemName,
+    description: this.props.description,
+    price: this.props.price,
+    image: this.props.image,
+    size: null,
+  };
   render() {
     return (
       <div className="itemframe">
@@ -20,7 +28,7 @@ class Items extends Component {
           <Select
             className="size"
             options={this.options}
-            defaultValue= {{value: 'S',label:"S"}}
+            defaultValue={{ value: "S", label: "S" }}
             onChange={(value) => this.setState({ size: value.value })}
           ></Select>
           <button
@@ -37,9 +45,11 @@ class Items extends Component {
       </div>
     );
   }
-  decCount = () =>{
-    this.setState(this.state.count > 0 ? {count: this.state.count - 1} : {count: 0})
-  }
+  decCount = () => {
+    this.setState(
+      this.state.count > 0 ? { count: this.state.count - 1 } : { count: 0 }
+    );
+  };
   handleSelect = (event) => {
     console.log(event.target.innerHTML, this);
   };
@@ -48,8 +58,17 @@ class Items extends Component {
     return count === 0 ? 0 : count;
   }
   incCount = () => {
-    // console.log("Inc Clicked", this);
-    console.log(this.props.key, this);
+    const buy_data = {
+      itemName: this.buy_data.itemName,
+      description: this.buy_data.description,
+      price: this.buy_data.price,
+      size: this.state.size,
+      image: this.buy_data.image,
+
+    };
+    axios
+      .post("http://localhost:5000/dataset/add", buy_data)
+      .then((res) => console.log(res.data));
     this.setState({ count: this.state.count + 1 });
   };
 }
