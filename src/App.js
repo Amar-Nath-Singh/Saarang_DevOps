@@ -13,7 +13,6 @@ function App() {
           {/* <Route path="/Dashboard"></Route> */}
         </Routes>
     </BrowserRouter>
-    <Login/>
     </div>
   );
 }

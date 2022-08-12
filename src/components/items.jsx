@@ -24,7 +24,7 @@ class Items extends Component {
             onChange={(value) => this.setState({ size: value.value })}
           ></Select>
           <button
-            onClick={this.handelClick}
+            onClick={this.incCount}
             className="btn btn-primary position-relative add-button"
           >
             Add to Cart
@@ -32,20 +32,24 @@ class Items extends Component {
               {this.formatCount()}
             </span>
           </button>
+          {/* <button onClick={this.decCount} className="btn btn-primary position-relative add-button"> - </button> */}
         </div>
       </div>
     );
+  }
+  decCount = () =>{
+    this.setState(this.state.count > 0 ? {count: this.state.count - 1} : {count: 0})
   }
   handleSelect = (event) => {
     console.log(event.target.innerHTML, this);
   };
   formatCount() {
     const { count } = this.state;
-    return count === 0 ? "Zero" : count;
+    return count === 0 ? 0 : count;
   }
-  handelClick = () => {
+  incCount = () => {
     // console.log("Inc Clicked", this);
-    console.log(this.state.size, this);
+    console.log(this.props.key, this);
     this.setState({ count: this.state.count + 1 });
   };
 }
