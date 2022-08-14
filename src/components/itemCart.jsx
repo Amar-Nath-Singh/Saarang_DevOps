@@ -28,7 +28,7 @@ class ItemCart extends Component {
         <img
           className="card-img-top"
           src={this.props.image}
-          alt="Card image cap"
+          alt=""
         ></img>
         <div className="card-body">
           <h5 className="card-title">{this.props.itemName}</h5>
