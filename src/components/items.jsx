@@ -21,26 +21,33 @@ class Items extends Component {
   };
   render() {
     return (
-      <div className="itemframe">
-        <img className="imagebox" src={this.props.image} width="200" alt="" />
-        <h4 className="itemname">{this.props.itemName}</h4>
-        <div className="AddCart">
-          <Select
-            className="size"
-            options={this.options}
-            defaultValue={{ value: "S", label: "S" }}
-            onChange={(value) => this.setState({ size: value.value })}
-          ></Select>
-          <button
-            onClick={this.incCount}
-            className="btn btn-primary position-relative add-button"
-          >
-            Add to Cart
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              {this.formatCount()}
-            </span>
-          </button>
-          {/* <button onClick={this.decCount} className="btn btn-primary position-relative add-button"> - </button> */}
+      <div className="card itemBox">
+        <img
+          className="card-img-top"
+          src={this.props.image}
+          alt="Card image cap"
+        ></img>
+        <div className="card-body">
+          <h5 className="card-title">{this.props.itemName}</h5>
+          <h6 className="card-text">{this.props.price}</h6>
+          <p className="card-text">{this.props.description}</p>
+          <div className="buyoptions" style={{"display" : "flex", }}>
+            <Select
+              className="size"
+              options={this.options}
+              defaultValue={{ value: "S", label: "S" }}
+              onChange={(value) => this.setState({ size: value.value })}
+            ></Select>
+            <button
+              onClick={this.incCount}
+              className="btn btn-primary position-relative add-button"
+            >
+              Add
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {this.formatCount()}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -64,7 +71,6 @@ class Items extends Component {
       price: this.buy_data.price,
       size: this.state.size,
       image: this.buy_data.image,
-
     };
     axios
       .post("http://localhost:5000/dataset/add", buy_data)

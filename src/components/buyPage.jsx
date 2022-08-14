@@ -7,7 +7,7 @@ class BuyPage extends Component {
     count: 0,
     items: [
       {
-        id: 1,
+        _id : 1,
         
         itemname: "TSHIRT",
         price: 105,
@@ -16,7 +16,7 @@ class BuyPage extends Component {
           "https://giftshop.iitm.ac.in/pub/media/catalog/product/cache/70363dcd7ca9e78e610c784651f84966/i/i/iit_madras_superstar_t_shirt_white_1.jpg",
       },
       {
-        id: 2,
+        _id : 2,
         
         itemname: "TSHIRT",
         price: 105,
@@ -25,7 +25,7 @@ class BuyPage extends Component {
           "https://giftshop.iitm.ac.in/pub/media/catalog/product/cache/70363dcd7ca9e78e610c784651f84966/i/i/iit_madras_victory_polo_maroon_1.jpg",
       },
       {
-        id: 3,
+        _id : 3,
         itemname: "TSHIRT",
         price: 105,
         itemdesc : "Item description",
@@ -33,7 +33,7 @@ class BuyPage extends Component {
           "https://giftshop.iitm.ac.in/pub/media/catalog/product/cache/70363dcd7ca9e78e610c784651f84966/i/i/iit_madras_signature_t_shirt_royal_blue_1.jpg",
       },
       {
-        id: 4,
+        _id : 4,
         
         itemname: "TSHIRT",
         price: 105,
@@ -42,7 +42,7 @@ class BuyPage extends Component {
           "https://giftshop.iitm.ac.in/pub/media/catalog/product/cache/70363dcd7ca9e78e610c784651f84966/i/i/iit_madras_superstar_t_shirt_white_1.jpg",
       },
       {
-        id: 5,
+        _id : 5,
         
         itemname: "TSHIRT",
         price: 105,
@@ -51,7 +51,7 @@ class BuyPage extends Component {
           "https://giftshop.iitm.ac.in/pub/media/catalog/product/cache/70363dcd7ca9e78e610c784651f84966/i/i/iit_madras_victory_polo_maroon_1.jpg",
       },
       {
-        id: 6,
+        _id: 6,
         
         itemname: "TSHIRT",
         price: 105,
@@ -70,7 +70,7 @@ class BuyPage extends Component {
             {this.state.items.map((item) => (
               <div class="col">
                 <Items
-                  key={item.id}
+                  key={item._id}
                   itemName={item.itemname}
                   image={item.image}
                   price = {item.price}

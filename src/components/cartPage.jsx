@@ -11,31 +11,56 @@ class CartPage extends Component {
     axios
       .get("http://localhost:5000/dataset/")
       .then((response) => {
-          this.setState({ data: response.data });
+        this.setState({ data: response.data });
       })
       .catch((error) => {
         console.log(error);
       });
     return (
-      <div>
+      // <div>
+      //   <NavBar />
+      //   {this.state.data.length > 0 ? this.state.data.map((item) => (
+      //     <div className="container-fluid">
+      //       <ItemCart
+      //         key={item._id}
+      //         id={item._id}
+      //         itemName={item.itemName}
+      //         description={item.description}
+      //         price={item.price}
+      //         image={item.image}
+      //         size={item.size}
+      //       ></ItemCart>
+      //     </div>
+      //   )) : null}
+      //   {this.state.data.length === 0
+      //     ?              <h4>No Items Add in cart!</h4>
+      //     : null}
+      // </div>
+      <body>
         <NavBar />
-        {this.state.data.length > 0 ? this.state.data.map((item) => (
-          <div className="container-fluid">
-            <ItemCart
-              key={item._id}
-              id={item._id}
-              itemName={item.itemName}
-              description={item.description}
-              price={item.price}
-              image={item.image}
-              size={item.size}
-            ></ItemCart>
+        <div class="container">
+          <div class="row align-items-start">
+            {this.state.data.length > 0
+              ? this.state.data.map((item) => (
+                  <div class="col">
+                    <ItemCart
+                      key={item._id}
+                      id={item._id}
+                      itemName={item.itemName}
+                      description={item.description}
+                      price={item.price}
+                      image={item.image}
+                      size={item.size}
+                    ></ItemCart>
+                  </div>
+                ))
+              : null}
+            {this.state.data.length === 0 ? (
+              <h4>No Items Added in cart!</h4>
+            ) : null}
           </div>
-        )) : null}
-        {this.state.data.length === 0
-          ?              <h4>No Items Add in cart!</h4>
-          : null}
-      </div>
+        </div>
+      </body>
     );
   }
 }

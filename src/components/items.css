@@ -1,18 +1,10 @@
 .size {
-  padding: 5%;
-  height: 50px;
-  width: 150px;
+  min-width: 100px;
+
 }
-.imagebox {
-  width: 200px;
-  padding: 10%;
-  border: 1px solid gray;
+.itemBox{
+  max-width: 18rem;
 }
-.add-button {
-  padding: 5%;
-  width: 150px;
-  height: 50px;
-}
-.itemframe {
-  width: 200px;
+.buyoptions{
+  display: flex;
 }
