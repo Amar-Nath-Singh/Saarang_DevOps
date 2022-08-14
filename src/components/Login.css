@@ -1,0 +1,9 @@
+.LogoImg {
+    display: block;
+    margin: auto;
+    padding: 5%;
+}
+.login-button {
+    display: flex;
+    vertical-align: bottom;
+}
