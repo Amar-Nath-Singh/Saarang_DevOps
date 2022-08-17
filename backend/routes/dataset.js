@@ -28,9 +28,13 @@ router.route("/add").post((req, res) => {
 });
 router.route("/delete/:id").delete((req, res) => {
   dataset
-    // .findOneAndDelete({ _id: req.params.id })
     .findByIdAndDelete(String(req.params.id))
     .then(() => res.json("Data deleted"))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+router.route("/delete").delete((req, res) => {
+  dataset.deleteMany()
+    .then(() => res.json("Data Found"))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 

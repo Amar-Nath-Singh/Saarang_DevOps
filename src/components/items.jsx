@@ -23,7 +23,7 @@ class Items extends Component {
     return (
       <div className="card itemBox">
         <img
-          className="card-img-top"
+          className="card-img-top imagesize"
           src={this.props.image}
           alt=""
         ></img>

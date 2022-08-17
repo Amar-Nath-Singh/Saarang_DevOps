@@ -5,28 +5,9 @@ class ItemCart extends Component {
   state = {};
   render() {
     return (
-      // <div>
-      //   <div className="itemBox">
-      //     <img src={this.props.image} alt={this.props.itemName}>
-      //     </img>
-      //     <button type="button" className="close sticky-top" aria-label="Close" onClick={() => this.removeItem(this.props.id)}>
-      //       <span aria-hidden="true">&times;</span>
-      //     </button>
-      //     <p>{this.props.itemName}</p>
-      //     <p>{this.props.description}</p>
-      //     <p>{this.props.price}</p>
-      //     <p>{this.props.size}</p>
-      //     {/* <button
-      //       className="btn btn-outline-secondary"
-      //       onClick={() => this.removeItem(this.props.id)}
-      //     >
-      //       Remove
-      //     </button> */}
-      //   </div>
-      // </div>
       <div className="card itemBox">
         <img
-          className="card-img-top"
+          className="card-img-top imagesize"
           src={this.props.image}
           alt=""
         ></img>

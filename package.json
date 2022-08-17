@@ -22,8 +22,11 @@
     "react-select": "^5.4.0",
     "web-vitals": "^2.1.4"
   },
+  "engines": {
+    "node": "16.15.1"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"nodemon backend/server \" ",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
